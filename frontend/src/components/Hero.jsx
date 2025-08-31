@@ -37,9 +37,12 @@ const HeroSection = () => {
           >
             <ShoppingBag size={18} /> Shop Now
           </button>
-          <Link className="btn btn-outline text-white border-white">
+          <button
+            onClick={scrollToProducts}
+            className="btn btn-outline text-white border-white"
+          >
             Learn More
-          </Link>
+          </button>
         </div>
       </div>
     </section>
