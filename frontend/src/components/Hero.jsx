@@ -12,7 +12,7 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative h-[75vh] flex items-center justify-center text-center bg-cover bg-center rounded-2xl overflow-hidden mx-1  md:mx-1"
+      className="relative h-[80vh] flex items-center justify-center text-center bg-cover bg-center rounded-2xl overflow-hidden mx-1  md:mx-1 my-3"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=1920&auto=format&fit=crop')",

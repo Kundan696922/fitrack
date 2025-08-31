@@ -3,6 +3,7 @@ import ProductNotFound from "../components/ProductNotFound";
 import ProductCard from "../components/ProductCard";
 import { useProductStore } from "../store/product";
 import Hero from "../components/Hero";
+import Prism from "../components/Prism"; // ✅ Prism component
 
 const HomePage = ({ search }) => {
   const { fetchProducts, products } = useProductStore();
@@ -18,8 +19,14 @@ const HomePage = ({ search }) => {
   const isSearching = search.trim() !== "";
 
   return (
-    <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto p-4 mt-6 gap-2">
+    <div className="min-h-screen relative">
+      {/* Prism background effect */}
+      <div className="absolute inset-0 z-0 ">
+        <Prism />
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 max-w-7xl mx-auto p-4 gap-2">
         {!isSearching && <Hero />}
 
         <section
