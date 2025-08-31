@@ -26,7 +26,7 @@ const HomePage = ({ search }) => {
           className="max-w-6xl mx-auto px-4 py-12 min-h-screen"
           id="products"
         >
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-2 p-2 text-center leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 p-2 text-center leading-tight">
             {isSearching ? "Search Results" : "Current Fitness Gear"}
           </h2>
 
