@@ -27,8 +27,8 @@ const ProductCard = ({ product }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-3xl font-bold">{product.name}</h2>
-        <span className="text-xl">₹ {product.price}</span>
+        <h2 className="card-title text-xl md:text-2xl lg:text-3xl font-bold">{product.name}</h2>
+        <span className="text-base md:text-lg lg:text-xl">₹ {product.price}</span>
         <div className="card-actions justify-between items-center mt-4">
           <div className="flex items-center gap-1">
             <button onClick={() => setIsModalOpen(true)}>
