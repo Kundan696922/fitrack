@@ -39,11 +39,15 @@
 
 <img width="1280" height="720" alt="fitrack" src="https://github.com/user-attachments/assets/f9cca65c-f2ea-4fbd-9f41-e061c20e41f8" />
 
+
 <img width="1280" height="720" alt="fitrack2" src="https://github.com/user-attachments/assets/04bf771a-dd2c-405a-b3dd-51208f28bbde" />
+
 
 <img width="1280" height="720" alt="fitrack3" src="https://github.com/user-attachments/assets/7b976bd6-522e-455c-b891-7e8588b91992" />
 
+
 <img width="1280" height="720" alt="fitrack4" src="https://github.com/user-attachments/assets/633c1259-ec0d-4b3c-8855-434675abc3fc" />
+
 
 <img width="1280" height="720" alt="fitrack5" src="https://github.com/user-attachments/assets/647ed649-e63b-44aa-b926-ba4ee955f578" />
 
