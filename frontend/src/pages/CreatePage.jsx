@@ -91,7 +91,7 @@ const CreatePage = () => {
                 </div>
                 <div className="form-control mb-4">
                   <label className="label">
-                    <span className="label-text">Price</span>
+                    <span className="label-text">Image</span>
                   </label>
                   <input
                     name="image"
