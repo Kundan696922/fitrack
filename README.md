@@ -14,7 +14,7 @@
 
 | Tool | Description |
 |------|-------------|
-| ![MongoDB](https://img.icons8.com/color/24/mongodb.png) **MongoDB** | NoSQL Database for storing notes |
+| ![MongoDB](https://img.icons8.com/color/24/mongodb.png) **MongoDB** | NoSQL Database for storing Products |
 | ![Express](https://img.icons8.com/ios/24/express-js.png) **Express.js** | Backend API framework |
 | ![React](https://img.icons8.com/color/24/react-native.png) **React** | Frontend UI library |
 | ![Node.js](https://img.icons8.com/color/24/nodejs.png) **Node.js** | Server-side JavaScript runtime |
