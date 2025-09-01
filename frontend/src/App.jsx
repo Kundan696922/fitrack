@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import { Route, Routes } from "react-router";
 import CreatePage from "./pages/CreatePage";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export default function App() {
   const [search, setSearch] = useState("");
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/" element={<HomePage search={search} />} />
         <Route path="/create" element={<CreatePage />} />
       </Routes>
+      <Footer/>
     </>
   );
 }

@@ -12,6 +12,8 @@ const CreatePage = () => {
     image: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const { createProduct } = useProductStore()
   
   const navigate = useNavigate();
@@ -23,15 +25,25 @@ const CreatePage = () => {
       toast.error("All fields are required!");
       return; // stop execution
     }
-    
-    const { success, message } = await createProduct(newProduct);
-    if (!success) {
-      toast.error("Failed to create Product")
-    } else { 
-      toast.success("Product created successfully")
+
+    setLoading(true);
+
+    try {
+      const { success, message } = await createProduct(newProduct);
+      if (!success) {
+        toast.error("Failed to create Product");
+      } else {
+        toast.success("Product created successfully");
+      }
+      setNewProduct({ name: "", price: "", image: "" });
+      navigate("/");
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally { 
+      setLoading(false);
     }
-    setNewProduct({ name: "", price: "", image: "" });
-    navigate("/");
+    
+  
   };
 
   return (
@@ -45,7 +57,7 @@ const CreatePage = () => {
 
           <div className="card bg-base-100">
             <div className="card-body">
-              <h2 className="card-title text-2xl mb-4">Create New Product</h2>
+              <h2 className="card-title text-2xl mb-4 ">Create New Product</h2>
               <form onSubmit={handleAddProduct}>
                 <div className="form-control mb-4">
                   <label className="label">
@@ -96,8 +108,9 @@ const CreatePage = () => {
                   <button
                     type="submit"
                     className="btn btn-primary"
+                    disabled={ loading}
                   >
-                    Add Product
+                    { loading ? "Adding..." : "Add Product"}
                   </button>
                 </div>
               </form>

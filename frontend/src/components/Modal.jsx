@@ -5,6 +5,7 @@ import { useProductStore } from "../store/product";
 const Modal = ({ product, onClose }) => {
   const [updatedProduct, setUpdatedProduct] = useState(product);
   const { updateProduct } = useProductStore();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const modal = document.getElementById("modal");
@@ -12,6 +13,7 @@ const Modal = ({ product, onClose }) => {
   }, []);
 
   const handleUpdateProduct = async () => {
+    setLoading(true);
     try {
       const { success, message } = await updateProduct(
         product._id,
@@ -21,19 +23,24 @@ const Modal = ({ product, onClose }) => {
         toast.error(message || "Failed to update product");
       } else {
         toast.success("Product Updated Successfully!");
-        onClose(); 
+        onClose();
       }
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong!");
+    } finally { 
+      setLoading(false);
     }
   };
 
   return (
     <dialog id="modal" className="modal">
       <div className="modal-box">
-        <h3 className="font-bold text-lg text-center">Update Product</h3>
+        <h2 className="font-bold text-2xl mb-4 text-center">Update Product</h2>
         <div className="flex flex-col gap-4 mt-4">
+          <label className="label">
+            <span className="label-text">Name</span>
+          </label>
           <input
             name="name"
             type="text"
@@ -44,6 +51,9 @@ const Modal = ({ product, onClose }) => {
               setUpdatedProduct({ ...updatedProduct, name: e.target.value })
             }
           />
+          <label className="label">
+            <span className="label-text">Price</span>
+          </label>
           <input
             name="price"
             type="number"
@@ -54,6 +64,9 @@ const Modal = ({ product, onClose }) => {
               setUpdatedProduct({ ...updatedProduct, price: e.target.value })
             }
           />
+          <label className="label">
+            <span className="label-text">Image</span>
+          </label>
           <input
             name="image"
             type="text"
@@ -66,8 +79,12 @@ const Modal = ({ product, onClose }) => {
           />
         </div>
         <div className="modal-action">
-          <button className="btn btn-primary" onClick={handleUpdateProduct}>
-            Update
+          <button
+            className="btn btn-primary"
+            onClick={handleUpdateProduct}
+            disabled={loading}
+          >
+            { loading ? "Updating..." : "Update"}
           </button>
           <button className="btn" onClick={onClose}>
             Close

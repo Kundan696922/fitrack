@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductNotFound from "../components/ProductNotFound";
 import ProductCard from "../components/ProductCard";
 import { useProductStore } from "../store/product";
 import Hero from "../components/Hero";
 
-
 const HomePage = ({ search }) => {
   const { fetchProducts, products } = useProductStore();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchProducts();
+    const loadProducts = async () => {
+      setLoading(true);
+
+      await fetchProducts();
+      setLoading(false);
+    };
+    loadProducts();
   }, [fetchProducts]);
 
   const filteredProducts = products.filter((product) =>
@@ -33,7 +39,13 @@ const HomePage = ({ search }) => {
             {isSearching ? "Search Results" : "Current Fitness Gear"}
           </h2>
 
-          {filteredProducts.length > 0 ? (
+          {/* loading products */}
+
+          {loading ? (<div className="flex flex-cols items-center justify-center py-16">
+            <p className="text-lg mt-4 font-semibold animate-pulse">
+              Loading products...
+            </p>
+          </div>) :filteredProducts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
               {filteredProducts.map((product) => (
                 <ProductCard key={product._id} product={product} />
@@ -41,8 +53,9 @@ const HomePage = ({ search }) => {
             </div>
           ) : (
             <ProductNotFound />
-          )}
+          )} 
         </section>
+        
       </div>
     </div>
   );

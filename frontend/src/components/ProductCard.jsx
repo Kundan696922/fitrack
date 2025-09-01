@@ -3,12 +3,16 @@ import { Trash2Icon, PenSquareIcon } from "lucide-react";
 import { useProductStore } from "../store/product";
 import toast from "react-hot-toast";
 import Modal from "./Modal";
+import { LoaderIcon } from "lucide-react";
 
 const ProductCard = ({ product }) => {
   const { deleteProduct } = useProductStore();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const handleDeleteProduct = async (pid) => {
+    if (!window.confirm("Are you sure you want to delete this Product?")) return;
+
     const { success } = await deleteProduct(pid);
     if (!success) {
       toast.error("Error in Deleting product");
@@ -18,14 +22,25 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="card bg-base-200 hover:shadow-lg transition-all duration-200">
-      <figure>
+      <div className="card bg-base-200 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02]">
+
+      <figure className="relative w-full h-64 bg-gray-100">
         <img
-          src={product.image}
+          src={product.image || "/placeholder.jpg"}
           alt={product.name}
-          className="w-full h-full object-cover"
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
+            imageLoading ? "opacity-0" : "opacity-100"
+          }`}
+          onLoad={() => setImageLoading(false)}
+          onError={() => setImageLoading(false)}
         />
+        {imageLoading && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <LoaderIcon className="w-8 h-8 animate-spin text-primary" />
+          </div>
+        )}
       </figure>
+
       <div className="card-body">
         <h2 className="card-title text-xl md:text-2xl lg:text-3xl font-bold">
           {product.name}
