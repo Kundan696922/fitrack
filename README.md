@@ -1,5 +1,3 @@
-https://fitrack-4hif.onrender.com
-
 # 📝 FitRack – MERN Stack Product Store App
 
 **FitRack** is a **Full-Stack Note Taking App** built with the **MERN stack**. It lets you **create, edit, search and delete Products** with ease, has a **fully functional REST API**
@@ -8,7 +6,7 @@ https://fitrack-4hif.onrender.com
 
 ## 🚀 Demo
 
-> 🌐 Live Demo: 👉 [View NoteBoard](https://noteboard-6618.onrender.com/)
+> 🌐 Live Demo: 👉 [View FitRack](https://fitrack-4hif.onrender.com/)
 
 ---
 
