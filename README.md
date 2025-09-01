@@ -1,6 +1,6 @@
 # 📝 FitRack – MERN Stack Product Store App
 
-**FitRack** is a **Full-Stack Note Taking App** built with the **MERN stack**. It lets you **create, edit, search and delete Products** with ease, has a **fully functional REST API**
+**FitRack** is a **Full-Stack Product Store App** built with the **MERN stack**. It lets you **create, edit, search and delete Products** with ease, has a **fully functional REST API**
 
 ---
 
