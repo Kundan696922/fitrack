@@ -83,5 +83,6 @@ Ensure you have the following installed:
 
 🚀 Start the App
    ```bash
+   npm install
    npm run build
    npm run start
